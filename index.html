@@ -13,7 +13,12 @@
 
     <script>
         //XMLHttpRequest
-        
+        let request = new XMLHttpRequest(); //สร้าง obj Request
+        request.open('GET', 'https://jsonplaceholder.typicode.com/users'); //ส่งอากิวเม้นไป 2 ตัว
+        request.send();
+        request.onload = () => {
+            
+        }
     </script>
 </body>
 </html>
