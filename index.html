@@ -11,6 +11,7 @@
         <h1 align='center'>Javascript API Call</h1>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // //XMLHttpRequest
         // let request = new XMLHttpRequest(); //สร้าง obj Request
@@ -21,11 +22,24 @@
         //     if (request.status === 200) {
         //         console.log(JSON.parse(request.response))
         //     }else {
-        //         console.log(`error ${request.status} ${request.statusText})
+        //         console.log(`error ${request.status} 
+        //         ${request.statusText}`);
         //     }
         // }
 
-        
+        //jquery
+        $(document).ready(function () {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/users', 
+                type: 'GET',
+                success: function(result) {
+                    console.log(result)
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            })
+        })
     </script>
 </body>
 </html>
