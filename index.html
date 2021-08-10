@@ -11,44 +11,58 @@
         <h1 align='center'>Javascript API Call</h1>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--jQuery-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!--Axios-->
     <script>
         // //XMLHttpRequest
-        // let request = new XMLHttpRequest(); //สร้าง obj Request
-        // request.open('GET', 'https://jsonplaceholder.typicode.com/users'); //ส่งอากิวเม้นไป 2 ตัว
-        // request.send();
-        // request.onload = () => { //เมื่อได้ข้อมูลมาจะ onload
-        //     console.log(request);
-        //     if (request.status === 200) {
-        //         console.log(JSON.parse(request.response))
-        //     }else {
-        //         console.log(`error ${request.status} 
-        //         ${request.statusText}`);
-        //     }
-        // }
+        let request = new XMLHttpRequest(); //สร้าง obj Request
+        request.open('GET', 'https://jsonplaceholder.typicode.com/users'); //ส่งอากิวเม้นไป 2 ตัว
+        request.send();
+        request.onload = () => { //เมื่อได้ข้อมูลมาจะ onload
+            console.log(request);
+            if (request.status === 200) {
+                console.log(JSON.parse(request.response))
+            }else {
+                console.log(`error ${request.status} 
+                ${request.statusText}`);
+            }
+        }
 
-        // //jquery
-        // $(document).ready(function () {
-        //     $.ajax({
-        //         url: 'https://jsonplaceholder.typicode.com/users', 
-        //         type: 'GET',
-        //         success: function(result) {
-        //             console.log(result)
-        //         },
-        //         error: function(error){
-        //             console.log(error);
-        //         }
-        //     })
-        // })
+        //---------------------------
 
-        // //Fetch + Async & Await
-        // async function getUser() { //สร้างฟังก์ชั่น
-        //     let response = await fetch('https://jsonplaceholder.typicode.com/users'); //สร้างตัวแปรเก็บข้อมูล
-        //     let data = await response.json(); //ดึง response แปลงเป็น json
-        //     return data;
-        // }
+        //jquery
+        $(document).ready(function () {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/users', 
+                type: 'GET',
+                success: function(result) {
+                    console.log(result)
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            })
+        })
 
-        // getUser().then(data => console.log(data)); //แสดงข้อมูล
+        //-------------------------------
+
+        //Fetch + Async & Await
+        async function getUser() { //สร้างฟังก์ชั่น
+            let response = await fetch('https://jsonplaceholder.typicode.com/users'); //สร้างตัวแปรเก็บข้อมูล
+            let data = await response.json(); //ดึง response แปลงเป็น json
+            return data;
+        }
+
+        getUser().then(data => console.log(data)); //แสดงข้อมูล
+
+        //-----------------------------
+
+        //Axios
+        axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
+            console.log(res.data);
+        }).catch(error => {
+            console.log(error);
+        })
 
     </script>
 </body>
