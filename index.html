@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <h1 align='center'>Javascript API Call</h1>
+        <h1 align='center'> </h1>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--jQuery-->
@@ -30,7 +30,7 @@
 
         //---------------------------
 
-        //jquery
+        //ajax
         $(document).ready(function () {
             $.ajax({
                 url: 'https://jsonplaceholder.typicode.com/users', 
@@ -44,7 +44,7 @@
             })
         })
 
-        //-------------------------------
+        // //-------------------------------
 
         //Fetch + Async & Await
         async function getUser() { //สร้างฟังก์ชั่น
@@ -55,7 +55,7 @@
 
         getUser().then(data => console.log(data)); //แสดงข้อมูล
 
-        //-----------------------------
+        // //-----------------------------
 
         //Axios
         axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
